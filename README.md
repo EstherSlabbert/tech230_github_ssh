@@ -1,4 +1,4 @@
-# tech230_github_ssh
+# SSH Authentication GitHub
 
 Details on setting up an SSH connection with GitHub.
 
@@ -46,9 +46,12 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC9vgB2GPfuitNa29+Xn9Avf4rxf+OIiXNFetxxHoVQ
 ```
 5. Open GitHub in your browser and login.
 6. Navigate to 'Settings' and in the 'Access' section open 'SSH and GPG keys', then select the option 'New SSH key'.
+
+![Add New SSH](github_add_ssh.png)
+
 7. Enter the name of your SSH key (eg. 'name_chosen_for_github_ssh') in the 'Title' section. Ensure the 'Key type' is 'Authentication Key'.
 8. Copy the results from step 4, ensuring there are no added whitespaces, and paste them in the 'Key' section.
-9. Click the 'Add SSH' button.
+9.  Click the 'Add SSH' button.
 10. GitHub will ask you to enter your GitHub password to confirm, so do that. You should be able to see the added SSH key in your 'Settings' in 'SSH and GPG keys' under 'Authentication Keys'.
 11. In your Git Bash terminal enter `ssh -T git@github.com`.
 <!-- 
@@ -66,13 +69,13 @@ This should return something similar:
 Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
 git@github.com: Permission denied (publickey).
 ```
-12. Enter `ssh-agent -s`. It should return similar:
+12.  Enter `ssh-agent -s`. It should return similar:
 ```
 SSH_AUTH_SOCK=/tmp/ssh-S7lbFKO1nLBi/agent.1971; export SSH_AUTH_SOCK;
 SSH_AGENT_PID=1972; export SSH_AGENT_PID;
 echo Agent pid 1972;
 ```
-13. Enter `ssh-add ~/.ssh/esther_github_ssh_test`. If successful it should return similar to the following:
+13.  Enter `ssh-add ~/.ssh/esther_github_ssh_test`. If successful it should return similar to the following:
 `Identity added: /c/Users/Name/.ssh/name_chosen_for_github_ssh (git_hub_email_address@gmail.com)`
 
 (Note: If it returns `Could not open a connection to your authentication agent.` run `chmod 644 name_chosen_for_github_ssh` and then `eval `ssh-agent -s``, which should return similar `Agent pid 1989`)
@@ -80,8 +83,9 @@ echo Agent pid 1972;
 14. Enter `ssh -T git@github.com`. If successful it should return similar to the following:
 `Hi GitHubName! You've successfully authenticated, but GitHub does not provide shell access.`
 
-15. Now you can use the SSH authentication when cloning a repository from GitHub to your local machine or from your machine to GitHub.
+15.  Now you can use the SSH authentication when cloning a repository/pulling from GitHub to your local machine or push from your machine to GitHub.
 
 Note:
 To clone a repository from GitHub use `git {clone copied_SSH_key}` where you copied the SSH authentication from the repository under 'Code' and 'SSH' rather than 'HTTP' (eg. `git clone git@github.com:EstherSlabbert/tech230_github_ssh.git`)
-To push a local repository to GitHub ensure your local git tree is clean then use `git push -u origin main` or `git push` as the SSH connection should already be set up.
+![SSH key authentication](get_ssh_authentication.png)
+To push a local repository to GitHub ensure your local git tree is clean then use `git push -u origin main` or `git push` as the SSH connection should already be set up. If you have made changes to the files online you may need to `git pull` before pushing.
