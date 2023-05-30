@@ -2,6 +2,8 @@
 
 Details on setting up an SSH connection with GitHub.
 
+[freecodecamp - Managing multiple SSH keys](https://www.freecodecamp.org/news/how-to-manage-multiple-ssh-keys/)
+
 Note: You do not need to open or look at your Private SSH key during this process. You should not share your private key with unauthorized parties.
 
 ## Steps:
