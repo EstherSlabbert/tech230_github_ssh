@@ -78,7 +78,7 @@ echo Agent pid 1972;
 13.  Enter `ssh-add ~/.ssh/esther_github_ssh_test`. If successful it should return similar to the following:
 `Identity added: /c/Users/Name/.ssh/name_chosen_for_github_ssh (git_hub_email_address@gmail.com)`
 
-(Note: If it returns `Could not open a connection to your authentication agent.` run `chmod 644 name_chosen_for_github_ssh` and then `eval `ssh-agent -s``, which should return similar `Agent pid 1989`)
+(Note: If it returns `Could not open a connection to your authentication agent.` run `chmod 644 name_chosen_for_github_ssh` and then `eval ssh-agent -s`, which should return similar `Agent pid 1989`)
 
 14. Enter `ssh -T git@github.com`. If successful it should return similar to the following:
 `Hi GitHubName! You've successfully authenticated, but GitHub does not provide shell access.`
